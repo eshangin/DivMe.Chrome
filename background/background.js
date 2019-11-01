@@ -16,3 +16,9 @@ chrome.runtime.onMessage.addListener((request, sender, response) => {
         sendMessageToCurrent('remove');
     }
 });
+
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+    if (changeInfo.status && changeInfo.status == 'complete') {
+        sendMessageToCurrent('newURL')
+    }
+})

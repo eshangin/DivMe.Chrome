@@ -10,15 +10,16 @@ function sendMessageToCurrent(msg) {
 }
 
 chrome.runtime.onMessage.addListener((request, sender, response) => {
-    if (request.data == 'activate') {
-        sendMessageToCurrent('draw');
-    } else if (request.data == 'remove') {
-        sendMessageToCurrent('remove');
+    if (request.data == 'fixed' || request.data == 'absolute' || request.data == 'remove') {
+        sendMessageToCurrent(request.data);
     }
 });
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-    if (changeInfo.status && changeInfo.status == 'complete') {
-        sendMessageToCurrent('newURL')
+    // EVERY REDIRECTION STARTS WITH A COMPLETE STATUS FOR SOME REASON.
+    if (tab.status && tab.status == 'complete') {
+        chrome.tabs.sendMessage(tabId, {
+            data: 'complete'
+        });
     }
-})
+});

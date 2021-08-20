@@ -74,6 +74,7 @@ let OverlayUniqueObject = {
             #ccc 10px,
             #ccc 20px
           )`;
+        OverlayUniqueObject.div.style.border = '1px solid #ddd';
         OverlayUniqueObject.div.style.position = OverlayUniqueObject.position;
         OverlayUniqueObject.div.style.zIndex = 1000000000;
         OverlayUniqueObject.div.style.top = OverlayUniqueObject.startPos.y + 'px';
@@ -153,6 +154,7 @@ let OverlayUniqueObject = {
                         #ccc 10px,
                         #ccc 20px
                       )`;
+                    div.style.border = '1px solid #ddd';
                     div.style.position = arr[i].position ? arr[i].position : 'absolute';
                     div.style.zIndex = 1000000000;
                     div.style.top = arr[i].top + 'px';

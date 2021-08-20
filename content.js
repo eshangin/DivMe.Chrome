@@ -67,7 +67,13 @@ let OverlayUniqueObject = {
             y: OverlayUniqueObject.position == 'absolute' ? e.pageY : e.clientY
         };
         OverlayUniqueObject.div = document.createElement('div');
-        OverlayUniqueObject.div.style.backgroundColor = '#eee';
+        OverlayUniqueObject.div.style.backgroundImage = `repeating-linear-gradient(
+            45deg,
+            #eee,
+            #eee 10px,
+            #ccc 10px,
+            #ccc 20px
+          )`;
         OverlayUniqueObject.div.style.position = OverlayUniqueObject.position;
         OverlayUniqueObject.div.style.zIndex = 1000000000;
         OverlayUniqueObject.div.style.top = OverlayUniqueObject.startPos.y + 'px';
@@ -140,7 +146,13 @@ let OverlayUniqueObject = {
             for (let i = 0; i < arr.length; i++) {
                 if (OverlayUniqueObject.makeURL(arr[i]) == OverlayUniqueObject.makeURL(window.location)) {
                     let div = document.createElement('div');
-                    div.style.backgroundColor = '#eee';
+                    div.style.backgroundImage = `repeating-linear-gradient(
+                        45deg,
+                        #eee,
+                        #eee 10px,
+                        #ccc 10px,
+                        #ccc 20px
+                      )`;
                     div.style.position = arr[i].position ? arr[i].position : 'absolute';
                     div.style.zIndex = 1000000000;
                     div.style.top = arr[i].top + 'px';
